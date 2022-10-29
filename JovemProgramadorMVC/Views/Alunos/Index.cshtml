@@ -1,0 +1,56 @@
+﻿<div class="text-left">
+
+    <div>
+        <h1>Dados dos Alunos</h1>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Contato</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">CEP</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <th scope="row">1</th>
+                <td>Ciclano</td>
+                <td>19</td>
+                <td>(47) 99825-4555</td>
+                <td>ciclano@gmail.com</td>
+                <td>88350-665</td>
+                <td><button type="button" class="btn btn-primary">Endereço</button></td>
+            </tr>
+
+            <tr>
+                <th scope="row">2</th>
+                <td>Fulano</td>
+                <td>20</td>
+                <td>(47) 9955-5248</td>
+                <td>fulano@gmail.com</td>
+                <td>88350-665</td>
+                <td><button type="button" class="btn btn-primary">Endereço</button></td>
+            </tr>
+
+            <tr>
+                <th scope="row">3</th>
+                <td>Beltrano</td>
+                <td>23</td>
+                <td>(47) 99545-4785</td>
+                <td>beltrano@gmail.com</td>
+                <td>88350-665</td>
+                <td><button type="button" class="btn btn-primary">Endereço</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <a class="btn btn-primary" type="button" asp-controller="Alunos" asp-action="Adicionar">Adicionar Novo Aluno</a>
+    </div>
+</div>
+
