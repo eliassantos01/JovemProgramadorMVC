@@ -11,10 +11,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using JovemProgramadorMVC.Data.Repositorio.Interface;
 
 namespace JovemProgramadorMVC
 {
-    public class Startup
+    public class Startup 
     {
         public Startup(IConfiguration configuration)
         {
