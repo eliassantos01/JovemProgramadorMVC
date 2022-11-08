@@ -1,34 +1,37 @@
 ﻿@model AlunoModel
 
+<form asp-controller="Aluno" asp-action="InserirAluno" method="post">
 
-<form asp-controller="Alunos" asp-action="InserirAluno" method="post">
 
-
-<div class="mb-3">
-
-    <label for="nomealunos">Nome</label> <br />
-    <input type="text" id="nomealunos" class="col-5" required> <br />
-
-    <label for="idade">Idade</label> <br />
-    <input type="text" id="idade" class="col-1" required> <br />
-
-    <label for="telefone"> Contato</label> <br />
-    <input type="tel" id="telefone" class="col-3" required placeholder="(00)0000-0000"> <br />
-
-    <label for="telefone"> E-mail</label> <br />
-    <input type="tel" id="telefone" class="col-3" required placeholder=""> <br />
-
-    <label for="telefone"> CEP</label> <br />
-    <input type="tel" id="telefone" class="col-3" required placeholder=""> <br />
-
-    <div class="d-grid gap-2 d-md-block">
-
-        <br />
-
-        <button class="btn btn-primary justify-content-md-center" type="submit">Adicionar</button>
-        <button class="btn btn-primary justify-content-md-center" type="button">Voltar</button>
+    <div class="mb-3">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" asp-for="Nome" class="col-md-6" />
     </div>
 
-</div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Idade</label>
+        <input type="text" asp-for="Idade" class="col-md-1" />
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Contato</label>
+        <input type="text" asp-for="Contato" class="col-md-4" required placeholder="(00)0000-0000">
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Email</label>
+        <input type="text" asp-for="Email" class="col-md-4" />
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Cep</label>
+        <input type="text" asp-for="Cep" class="col-md-4" />
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Adicionar</button>
+        <button class="btn btn-primary" type="button">Voltar</button>
+
+    </div>
 
 </form>
