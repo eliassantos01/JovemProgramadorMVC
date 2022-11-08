@@ -19,7 +19,8 @@ namespace JovemProgramadorMVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var alunos = _alunoRepositorio.BuscarAlunos();
+            return View(alunos);
         }
 
         public IActionResult Adicionar()
@@ -30,7 +31,7 @@ namespace JovemProgramadorMVC.Controllers
         public IActionResult InserirAluno(AlunoModel alunos)
         {
             _alunoRepositorio.InserirAluno(alunos);
-            return View();
+            return RedirectToAction("Index");
         }
 
 

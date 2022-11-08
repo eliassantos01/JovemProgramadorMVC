@@ -1,6 +1,6 @@
 ﻿@model AlunoModel
 
-<form asp-controller="Aluno" asp-action="InserirAluno" method="post">
+<form asp-controller="Alunos" asp-action="InserirAluno" method="post">
 
 
     <div class="mb-3">
@@ -28,10 +28,9 @@
         <input type="text" asp-for="Cep" class="col-md-4" />
     </div>
 
-    <div class="text-center">
+    <div>
         <button class="btn btn-primary" type="submit">Adicionar</button>
         <button class="btn btn-primary" type="button">Voltar</button>
-
     </div>
 
 </form>
