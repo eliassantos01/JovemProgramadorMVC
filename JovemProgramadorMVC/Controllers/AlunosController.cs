@@ -40,19 +40,23 @@ namespace JovemProgramadorMVC.Controllers
             return View(aluno);
         }
 
-        public IActionResult Alterar(AlunoModel alunos)
+        public IActionResult Alterar(AlunoModel aluno)
         {
-            _alunoRepositorio.Atualizar(alunos);
+            _alunoRepositorio.Atualizar(aluno);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Apagar(int id)
+        {
+            _alunoRepositorio.Apagar(id);
             return RedirectToAction("Index");
         }
 
 
-
-
-
-        public IActionResult ApagarConfirmacao()
+        public IActionResult ApagarConfirmacao(int id)
         {
-            return View();
+            AlunoModel aluno = _alunoRepositorio.BuscarId(id);
+            return View(aluno);
         }
 
        

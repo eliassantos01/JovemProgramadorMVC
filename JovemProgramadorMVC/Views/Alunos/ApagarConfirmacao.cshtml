@@ -1,9 +1,11 @@
-﻿@{
+﻿@model AlunoModel
+
+@{
     ViewData["Title"] = "Apagar Alunos";
 }
 
 <div class="text-md-center">
-    <h1>Apagar Aluno</h1>
+    <h1>Apagar (@Model.Nome)?</h1>
 </div>
 
 <div class="text-center">
@@ -11,5 +13,5 @@
     <h3>Atenção! Os dados apagados serão excluídos permanentemente.</h3>
 </div>
 <br />
-<a class="btn btn-danger btn-block" asp-controller="Alunos" asp-action="Apagar">Apagar Dados</a>
+<a class="btn btn-danger btn-block" asp-controller="Alunos" asp-route-id="@Model.Id" asp-action="Apagar">Apagar Dados</a>
 <a class="btn btn-secondary btn-block" asp-controller="Alunos" asp-action="Index">Voltar</a>

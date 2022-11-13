@@ -34,7 +34,8 @@ namespace JovemProgramadorMVC.Data.Repositorio
         {
             AlunoModel alunoDB = BuscarId(aluno.Id);
 
-            if (aluno == null) throw new System.Exception("Houve um erro na atualização das informações do aluno");
+            if (alunoDB == null) throw new System.Exception("Houve um erro na atualização das informações do aluno");
+
             alunoDB.Nome = aluno.Nome;
             alunoDB.Idade = aluno.Idade;
             alunoDB.Contato = aluno.Contato;
@@ -42,7 +43,20 @@ namespace JovemProgramadorMVC.Data.Repositorio
             alunoDB.Cep = aluno.Cep;
 
             _jovemProgramadorContexto.Update(alunoDB);
+            _jovemProgramadorContexto.SaveChanges();
+
             return alunoDB;
+        }
+
+        public bool Apagar(int id)
+        {
+            AlunoModel alunoDB = BuscarId(id);
+
+            if (alunoDB == null) throw new System.Exception("Erro. Não foi possível remover o registro do aluno");
+
+            _jovemProgramadorContexto.Remove(alunoDB);
+            _jovemProgramadorContexto.SaveChanges();
+            return true;
         }
     }
 }

@@ -9,5 +9,7 @@ namespace JovemProgramadorMVC.Data.Repositorio.Interface
         void InserirAluno(AlunoModel alunos);
         List<AlunoModel> BuscarAlunos();
         AlunoModel Atualizar(AlunoModel aluno);
+
+        bool Apagar(int id);
     }
 }
