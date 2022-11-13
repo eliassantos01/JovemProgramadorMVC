@@ -23,7 +23,26 @@ namespace JovemProgramadorMVC.Data.Repositorio
         public List<AlunoModel> BuscarAlunos()
         {
             return _jovemProgramadorContexto.Aluno.ToList();
+
+        }
+        public AlunoModel BuscarId(int id)
+        {
+            return _jovemProgramadorContexto.Aluno.FirstOrDefault(x => x.Id == id);
+        }
+
+        public AlunoModel Atualizar(AlunoModel aluno)
+        {
+            AlunoModel alunoDB = BuscarId(aluno.Id);
+
+            if (aluno == null) throw new System.Exception("Houve um erro na atualização das informações do aluno");
+            alunoDB.Nome = aluno.Nome;
+            alunoDB.Idade = aluno.Idade;
+            alunoDB.Contato = aluno.Contato;
+            alunoDB.Email = aluno.Email;
+            alunoDB.Cep = aluno.Cep;
+
+            _jovemProgramadorContexto.Update(alunoDB);
+            return alunoDB;
         }
     }
-
 }

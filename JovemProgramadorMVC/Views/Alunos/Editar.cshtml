@@ -1,16 +1,16 @@
 ﻿@model AlunoModel
 
 @{
-    ViewData["Title"] = "Adicionar Aluno";
+    ViewData["Title"] = "Editar Aluno";
 }
 
-
 <div class="text-md-center">
-    <h1>Adicionar Aluno</h1>
+    <h1>Editar Aluno</h1>
 </div>
 
-<form asp-controller="Alunos" asp-action="InserirAluno" method="post">
+<form asp-controller="Alunos" asp-action="Alterar" method="post">
 
+    <input type="hidden" asp-for="Id" />
 
     <div class="mb-3">
         <label for="name" class="form-label">Nome*</label>
@@ -38,7 +38,7 @@
     </div>
 
     <div>
-        <button class="btn btn-primary btn-block" type="submit">Adicionar</button>
+        <button class="btn btn-primary btn-block" type="submit" asp-controller="Alunos" asp-action="Alterar">Salvar Aterações</button>
         <a class="btn btn-secondary btn-block" role="button" asp-controller="Alunos" asp-action="Index">Voltar</a>
     </div>
 
