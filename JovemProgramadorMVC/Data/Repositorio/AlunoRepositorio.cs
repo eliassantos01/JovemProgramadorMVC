@@ -1,19 +1,13 @@
 ﻿using JovemProgramadorMVC.Data.Repositorio.Interface;
 using JovemProgramadorMVC.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace JovemProgramadorMVC.Data.Repositorio
 {
     public class AlunoRepositorio : IAlunoRepositorio
     {
         private readonly JovemProgramadorContexto _jovemProgramadorContexto;
-        private readonly IConfiguration _configuration;
 
         public AlunoRepositorio(JovemProgramadorContexto jovemProgramadorContexto)
         {
@@ -64,22 +58,5 @@ namespace JovemProgramadorMVC.Data.Repositorio
             _jovemProgramadorContexto.SaveChanges();
             return true;
         }
-
-        public async Task<IActionResult> BuscarEndereco(string cep)
-        {
-            EnderecoModel enderecoModel = new();
-
-            using var client = new HttpClient();
-
-            var result = await client.GetAsync(_configuration.GetSection("ApiCep")["BaseUrl"] + cep + "/json");
-            if (result.IsSuccessStatusCode)
-            {
-                enderecoModel = JsonSerializer.Deserialize<EnderecoModel>(await result.Content.ReadAsStringAsync(), new JsonSerializerOptions() { });
-            }
-
-            return View();
-
-        }
-
     }
 }

@@ -7,13 +7,13 @@ namespace JovemProgramadorMVC.Models
 {
     public class EnderecoModel
     {
-        public string Logradouro { get; set; }
+        public string logradouro { get; set; }
 
-        public string Bairro { get; set; }
+        public string bairro { get; set; }
 
-        public string Uf { get; set; }
+        public string uf { get; set; }
 
-        public string Ddd { get; set; }
+        public string ddd { get; set; }
 
     }
 }

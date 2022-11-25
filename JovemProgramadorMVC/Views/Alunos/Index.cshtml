@@ -1,4 +1,16 @@
-﻿@model List<AlunoModel>
+﻿@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["MensagemSucesso"]
+    </div>
+
+    <div class="alert alert-danger">
+        @ViewData["MensagemErro"]
+    </div>
+}
+
+
+@model List<AlunoModel>
 
 @{
     ViewData["Title"] = "Alunos";
@@ -33,23 +45,23 @@
             {
                 foreach (AlunoModel aluno in Model)
                 {
-            <tr>
-                <td>@aluno.Id</td>
-                <td>@aluno.Nome</td>
-                <td>@aluno.Idade</td>
-                <td>@aluno.Contato</td>
-                <td>@aluno.Email</td>
-                <td>@aluno.Cep</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary">Endereço</a>
-                        <a role="button" class="btn btn-secondary" asp-route-id="@aluno.Id" asp-controller="Alunos" asp-action="Editar">Editar</a>
-                        <a role="button" class="btn btn-danger" asp-route-id="@aluno.Id" asp-controller="Alunos" asp-action="ApagarConfirmacao">Apagar</a>
+                    <tr>
+                        <td>@aluno.Id</td>
+                        <td>@aluno.Nome</td>
+                        <td>@aluno.Idade</td>
+                        <td>@aluno.Contato</td>
+                        <td>@aluno.Email</td>
+                        <td>@aluno.Cep</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-controller="Alunos" asp-action="BuscarEndereco" asp-route-cep="@aluno.Cep">Endereço</a>
+                                <a role="button" class="btn btn-secondary" asp-route-id="@aluno.Id" asp-controller="Alunos" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@aluno.Id" asp-controller="Alunos" asp-action="ApagarConfirmacao">Apagar</a>
 
-                    </div>
-                </td>
+                            </div>
+                        </td>
 
-            </tr>
+                    </tr>
 
                 }
 
