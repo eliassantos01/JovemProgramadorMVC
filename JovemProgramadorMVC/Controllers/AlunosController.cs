@@ -88,8 +88,8 @@ namespace JovemProgramadorMVC.Controllers
             }
             catch (System.Exception)
             {
-                TempData["MensagemErro"] = "Erro. Por favor tente mais tarde";
-                throw;
+                TempData["MensagemErro"] = "Erro na conexão com o banco de dados. Por favor tente mais tarde";
+                return View();
             }
 
             
