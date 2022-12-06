@@ -1,0 +1,50 @@
+﻿@model ProfessorModel
+
+@{
+    ViewData["Title"] = "Adicionar Professor";
+}
+
+
+<div class="text-md-center">
+    <h1>Adicionar Professor</h1>
+</div>
+
+<form asp-controller="Professores" asp-action="InserirProfessor" method="post">
+
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Nome*</label>
+        <input type="text" asp-for="Nome" class="form-control" autofocus required placeholder="Informe o nome" />
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Idade*</label>
+        <input type="text" asp-for="Idade" class="form-control" required placeholder="Informe a idade" />
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Contato*</label>
+        <input type="text" asp-for="Contato" class="form-control" required placeholder="Informe o telefone">
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Email*</label>
+        <input type="text" asp-for="Email" class="form-control" required placeholder="Informe o e-mail" />
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Disciplina*</label>
+        <input type="text" asp-for="Disciplina" class="form-control" required placeholder="Informe a disciplina" />
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Cep*</label>
+        <input type="text" asp-for="Cep" class="form-control" required placeholder="Informe o CEP" />
+    </div>
+
+    <div>
+        <button class="btn btn-primary btn-block" type="submit">Adicionar</button>
+        <a class="btn btn-secondary btn-block" role="button" asp-controller="Professores" asp-action="Index">Voltar</a>
+    </div>
+
+</form>

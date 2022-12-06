@@ -34,6 +34,7 @@ namespace JovemProgramadorMVC
 
             services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
 
+            services.AddScoped<IProfessorRepositorio, ProfessorRepositorio>();
 
             services.AddControllersWithViews();
 

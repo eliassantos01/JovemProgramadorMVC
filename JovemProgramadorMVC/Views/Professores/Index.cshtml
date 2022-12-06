@@ -1,53 +1,79 @@
-﻿@{
-    ViewData["Title"] = "Professores";
+﻿@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["MensagemSucesso"]
+    </div>
 }
 
-<div class="text-left">
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">
+        @ViewData["MensagemErro"]
+    </div>
+}
 
-    <div>
-        <h1>Dados dos Professores</h1>
+    @model List<ProfessorModel>
+
+    @{
+        ViewData["Title"] = "Professores";
+    }
+
+    <div class="text-center">
+
+        <div>
+            <h1>Dados dos Professores</h1>
+        </div>
+
+        <div class="btn-group btn align-content-start" role="group">
+            <a class="btn btn-primary" role="button" type="submit" asp-controller="Professores" asp-action="Adicionar">Adicionar Novo Professor</a>
+            <a class="btn btn-secondary" role="button" type="submit" asp-controller="Home" asp-action="Index">Voltar</a>
+        </div>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Idade</th>
+                    <th scope="col">Contato</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Disciplina</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Gerenciar</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (Model != null && Model.Any())
+                {
+                    foreach (ProfessorModel professor in Model)
+                    {
+                <tr>
+                    <td>@professor.Id</td>
+                    <td>@professor.Nome</td>
+                    <td>@professor.Idade</td>
+                    <td>@professor.Contato</td>
+                    <td>@professor.Email</td>
+                    <td>@professor.Disciplina</td>
+                    <td>@professor.Cep</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a role="button" class="btn btn-primary" asp-controller="Professores" asp-action="BuscarEndereco" asp-route-cep="@professor.Cep">Endereço</a>
+                            <a role="button" class="btn btn-secondary" asp-route-id="@professor.Id" asp-controller="Professores" asp-action="Editar">Editar</a>
+                            <a role="button" class="btn btn-danger" asp-route-id="@professor.Id" asp-controller="Professores" asp-action="ApagarConfirmacao">Apagar</a>
+
+                        </div>
+                    </td>
+
+                </tr>
+
+                    }
+
+                }
+
+            </tbody>
+        </table>
+
+
     </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Idade</th>
-                <th scope="col">Contato</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Disciplina</th>
-                <th scope="col">CEP</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <tr>
-                <th scope="row">1</th>
-                <td>João</td>
-                <td>43</td>
-                <td>(47) 99825-4000</td>
-                <td>joao@gmail.com</td>
-                <td>FrontEnd</td>
-                <td>88350-635</td>
-                <td><button type="button" class="btn btn-primary">Endereço</button></td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Marcos</td>
-                <td>55</td>
-                <td>(47) 99785-2589</td>
-                <td>marcos@gmail.com</td>
-                <td>BackEnd</td>
-                <td>88350-120</td>
-
-                <td><button type="button" class="btn btn-primary">Endereço</button></td>
-            </tr>
-
-
-            </tr>
-        </tbody>
-    </table>
-
-    <button type="button" class="btn btn-primary">Adicionar Novo Professor</button>
-</div>
